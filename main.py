@@ -12,10 +12,6 @@ def main():
             for j in range(len(key_matrix[i])):
                 number = int(input('Write the number \n'))
                 key_matrix[i][j] = number
-        # print(key_matrix)
-        # print(key_matrix.diagonal())
-        # print(key_matrix[::-1].diagonal())
-        # key_matrix = np.resize(key_matrix,(rows + 2,cols))
         if cols == 2 or  rows == 2:
             print(key_matrix)
             print("Get the determinant by multiply the principal and inverse diagonals and add a"
@@ -23,6 +19,29 @@ def main():
             print('Like this:', key_matrix.diagonal(),'-',key_matrix[::-1].diagonal()[::-1])
             print((key_matrix.diagonal()[0] * key_matrix.diagonal()[1]),'-',(key_matrix[::-1].diagonal()[0] * key_matrix[::-1].diagonal()[1]))
             print('Result = ',((key_matrix.diagonal()[0] * key_matrix.diagonal()[1])-(key_matrix[::-1].diagonal()[0] * key_matrix[::-1].diagonal()[1])))
+        else:
+            print(key_matrix)
+            aux_matrix = key_matrix
+            print("First we need to add the first and the second row to the matrix:")
+            key_matrix = np.resize(key_matrix,(rows + 2,cols))
+            print(key_matrix)
+            print("Then you need to found the principal diagonals like the following ones:")
+            print(key_matrix.diagonal())
+            key_matrix = np.delete(key_matrix,0,axis=0)
+            print(key_matrix.diagonal())
+            key_matrix = np.delete(key_matrix,0,axis=0)
+            print(key_matrix.diagonal())
+            print("Then you need to found the inverse diagonals like the following:")
+            print(aux_matrix[::-1].diagonal()[::-1])
+            aux_matrix = np.resize(aux_matrix,(rows+2,cols))
+            aux_matrix = aux_matrix[::-1]
+            aux_matrix = np.delete(aux_matrix,0,axis=0)
+            print(aux_matrix.diagonal()[::-1])
+            print(aux_matrix[::-1])
+            # aux_matrix = np.delete(aux_matrix,0,axis=0)
+            print(aux_matrix.diagonal()[::-1])
+
+
 
 
     else:
