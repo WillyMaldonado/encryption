@@ -22,6 +22,7 @@ def main():
         else:
             print(key_matrix)
             aux_matrix = key_matrix
+            aux_matrix2 = key_matrix
             print("First we need to add the first and the second row to the matrix:")
             key_matrix = np.resize(key_matrix,(rows + 2,cols))
             print(key_matrix)
@@ -37,9 +38,12 @@ def main():
             aux_matrix = aux_matrix[::-1]
             aux_matrix = np.delete(aux_matrix,0,axis=0)
             print(aux_matrix.diagonal()[::-1])
-            print(aux_matrix[::-1])
-            # aux_matrix = np.delete(aux_matrix,0,axis=0)
-            print(aux_matrix.diagonal()[::-1])
+            row_deleted = np.delete(aux_matrix2,1,0)
+            aux_matrix2 = np.flip(aux_matrix2)
+            # aux_matrix2 = np.insert(aux_matrix2,2,row_deleted,axis=0)
+            # aux_matrix2 = np.fliplr(aux_matrix2)
+            aux_matrix2 = np.roll(aux_matrix2,2,axis=0)
+            print(aux_matrix2[::-1].diagonal())
 
 
 
